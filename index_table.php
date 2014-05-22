@@ -5,7 +5,7 @@
 </head>
 
 <body>
-
+<!-- is this workin g-->
 <?php
 // Connect to database server
 mysql_connect("localhost", "root", "") or die (mysql_error ());
