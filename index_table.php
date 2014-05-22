@@ -11,7 +11,7 @@
 mysql_connect("localhost", "root", "") or die (mysql_error ());
 
 //select database
-mysql_select_db("cjenkins_1_comicinventory") or die (mysql_error ());
+mysql_select_db("cjenkins_1_comicinventory.db") or die (mysql_error ());
 
 //SQL query
 $strSQL = "SELECT * From series ORDER BY title";
