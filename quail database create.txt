@@ -1,0 +1,46 @@
+-- Create Table: publications
+
+CREATE TABLE publications
+(
+	`id` INT  NULL AUTO_INCREMENT
+	,PRIMARY KEY (id)
+	,`series_id` INT  NULL 
+	,`issue_type_id` INT  NULL 
+	,`issue` VARCHAR(3)  NULL 
+	,`release_date` DATETIME  NULL 
+	,`price` DECIMAL(0, 0)  NULL 
+	,`notes` VARCHAR(5000)  NULL 
+);
+
+
+-- Create Table: issue
+CREATE TABLE issue
+(
+	`id` INT  NULL AUTO_INCREMENT
+	,PRIMARY KEY (id)
+	,`issuetype` VARCHAR(250)  NULL 
+);
+
+
+
+-- Create Table: series
+
+
+CREATE TABLE series
+(
+	`id` INT NOT NULL AUTO_INCREMENT
+	,PRIMARY KEY (id)
+	,`title` VARCHAR(100) NOT NULL 
+	,`publisher` VARCHAR(50) NOT NULL 
+	,`actively_collected` BIT  NULL 
+);
+
+
+
+-- Create Foreign Key: issue.id -> publications.issue_type_id
+ALTER TABLE issue ADD FOREIGN KEY (id) REFERENCES publications(issue_type_id);
+
+
+-- Create Foreign Key: series.id -> publications.series_id
+ALTER TABLE series ADD FOREIGN KEY (id) REFERENCES publications(series_id);
+
