@@ -1,5 +1,5 @@
 <?php
-  $corey = False;
+  $corey = True; // Set this to True for Corey and False for Mark
 
   $password = "";
 
