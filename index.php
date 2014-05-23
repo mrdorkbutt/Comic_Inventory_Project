@@ -9,11 +9,8 @@
   
 
 <?php
-// Connect to database server
-mysql_connect("localhost", "root", "") or die (mysql_error ());
 
-//select database
-mysql_select_db("cjenkins_1_comicinventory.db") or die (mysql_error ());
+include "database_config.php";
 
 //SQL query
 $strSQL = "SELECT * From series ORDER BY title";
