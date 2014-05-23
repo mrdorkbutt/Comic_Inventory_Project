@@ -7,11 +7,8 @@
 	<ul>
 
 	<?php
-	// Connect to database server
-	mysql_connect("localhost", "root", "") or die (mysql_error ());
-
-	// Select database
-	mysql_select_db("cjenkins_1_comicinventory.db") or die (mysql_error ());
+	
+	include "../database_config.php";
 
 	// Get data from the database depending on the value of the id in the URL
 	$strSQL = "SELECT * FROM series WHERE id=" . $_GET["id"];

@@ -7,11 +7,8 @@
 	<ul>
 
 	<?php
-	// Connect to database server
-	mysql_connect("localhost", "root", "") or die (mysql_error ());
 
-	// Select database
-	mysql_select_db("cjenkins_1_comicinventory.db") or die (mysql_error ());
+	include "../database_config.php";
 
 	// SQL query
 	$strSQL = "SELECT * From series ORDER BY title";
@@ -26,7 +23,11 @@
 	  $strName = $row['title'];
 
 	   // Create a link to series.php with the id-value in the URL
+<<<<<<< HEAD
 	   $strLink = "<a href = 'series.php?id= " . $row['id'] . "'>" . $strName . "</a>";
+=======
+	   $strLink = "<a href = 'series.php?id=" . $row['id'] . "'>" . $strName . "</a>";
+>>>>>>> 12e01682eaae908269e1a62cc3328afe3d79b525
 
 	    // List link
 	   echo "<li>" . $strLink . "</li>";
