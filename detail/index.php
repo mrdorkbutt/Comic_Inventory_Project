@@ -26,7 +26,7 @@
 	  $strName = $row['title'];
 
 	   // Create a link to series.php with the id-value in the URL
-	   $strLink = "<a href = 'series.php?id = " . $row['id'] . "'>" . $strName . "</a>";
+	   $strLink = "<a href = 'series.php?id= " . $row['id'] . "'>" . $strName . "</a>";
 
 	    // List link
 	   echo "<li>" . $strLink . "</li>";
