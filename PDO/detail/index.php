@@ -30,7 +30,7 @@ while ($rs = $sth->fetch(PDO::FETCH_OBJ)){
 // this is the problem area - Corey
 
 	   // Create a link to series.php with the id-value in the URL
-	   $strLink = "<a href = 'series.php?id= " . "\n" .$rs->id. "'>" .#rs->title. "</a>";
+	   $strLink = "<a href = 'series.php?id=".$rs->id. "'>" .#rs->title. "</a>";
 
 	    // List link
 	   echo "<li>" . $strLink . "</li>";
