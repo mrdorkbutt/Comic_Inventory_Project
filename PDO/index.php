@@ -27,9 +27,7 @@ $sth->execute();
 while ($rs = $sth->fetch(PDO::FETCH_OBJ)){
 	// Write the value of the column FirstName (which is now in the array $row)
 
-$strLink = "<a href=detail/series.php?id=" .$rs->id.">".$rs->title. "</a>"; 
-
-echo "Title: ".$strLink."<br>";
+echo "Title: ".$rs->title."<br>";
 echo "Publisher: ".$rs->publisher."<br>";
 }
 
