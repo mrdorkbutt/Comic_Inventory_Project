@@ -8,10 +8,8 @@
 
 	<?php
 	// Connect to database server
-	mysql_connect("localhost", "root", "") or die (mysql_error ());
 
-	// Select database
-	mysql_select_db("cjenkins_1_comicinventory.db") or die (mysql_error ());
+	include "../../database_config.php";
 
 	// Get data from the database depending on the value of the id in the URL
 	$strSQL = "SELECT * FROM series WHERE id=" . $_GET["id"];
@@ -32,7 +30,7 @@
 	?>
 
 	</dl>
-	<p><a href="index.php">Return to the list</a></p>
+	<p><a href="../index.php">Return to the list</a></p>
 
 	</body>
 

@@ -29,7 +29,7 @@
 	?>
 
 	</dl>
-	<p><a href="index.php">Return to the list</a></p>
+	<p><a href="../index.php">Return to the list</a></p>
 
 	</body>
 
