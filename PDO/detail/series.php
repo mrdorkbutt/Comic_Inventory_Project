@@ -1,6 +1,6 @@
 <html>
 	<head>
-	<title>Detail Page</title>
+	<title>Detail Page in PDO</title>
 	</head>
 	<body>
 
