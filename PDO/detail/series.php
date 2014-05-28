@@ -20,7 +20,7 @@
 	$sth->execute();
 
 	// Loop the recordset $rs
-	white ($rs = $sth->fetch(PDO::FETCH_OBJ)){
+	while ($rs = $sth->fetch(PDO::FETCH_OBJ)){
 	
 	
 		// Write the data of the person
