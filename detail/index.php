@@ -1,42 +1,51 @@
 <html>
-	<head>
-	<title>Retrieve detailed data from the database</title>
-	</head>
-	<body>
+<head>
+<title> Inventory Test </title>
 
-	<ul>
+</head>
 
-	<?php
+<body>
+ 
+  
 
-	include "../database_config.php";
+<?php
 
-	// SQL query
-	$strSQL = "SELECT * From series ORDER BY title";
+include "database_config.php";
 
-	// Execute the query (the recordset $rs contains the result)
-	$rs = mysql_query($strSQL);
+//SQL query
+$strSQL = "SELECT * From series ORDER BY title";
+
+
+// Execute the Query
+$rs = mysql_query($strSQL);
+
+// Loop the recordset $rs
+// Each row will be made into an array ($row) using mysql_fetch_array
+while($row = mysql_fetch_array($rs)) {
 	
-	// Loop the recordset $rs
-	while($row = mysql_fetch_array($rs)) {
+	// Write the value of the column FirstName (which is now in the array $row)
+	echo $row['title']  . " - " . $row['publisher']  . "<br />" ;
 
-	   // Name of the person
-	  $strName = $row['title'];
 
+
+}
+
+
+
+
+<<<<<<< HEAD
 	   // Create a link to series.php with the id-value in the URL
 	   $strLink = "<a href = 'series.php?id= " . $row['id'] . "'>" . $strName . "</a>";
 
+=======
+// close the database connection
+mysql_close();
+?>
+>>>>>>> a274890c775a342327f18a8c4cd5ef24b46d61ce
 
-	    // List link
-	   echo "<li>" . $strLink . "</li>";
 
-	  }
 
-	// Close the database connection
-	mysql_close();
-	?>
+</body>
 
-	</ul>
-	</body>
-	</html>
 
-	
+</html>

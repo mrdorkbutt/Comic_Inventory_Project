@@ -3,7 +3,19 @@
 
 function comicinventorydb_connect ()
 {
-	$dbh = new PDO("mysql:host=localhost;dbname=cjenkins_1_comicinventory.db", "root", "");
+
+  $corey = True; // Set this to True for Corey and False for Mark
+
+  $password = "";
+
+  if (!$corey) 
+    {
+      $password="mysql"; 
+    }
+
+
+
+	$dbh = new PDO("mysql:host=localhost;dbname=cjenkins_1_comicinventory.db", "root", $password);
 	return ($dbh);
 }
 ?>
