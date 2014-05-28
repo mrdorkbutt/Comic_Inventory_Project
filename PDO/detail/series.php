@@ -9,7 +9,7 @@
 	<?php
 	// Connect to database server
 
-	require_once "comicinventory_connect.php";
+	require_once "../comicinventory_connect.php";
 	$dbh = comicinventorydb_connect();
 
 	// Get data from the database depending on the value of the id in the URL
