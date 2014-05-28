@@ -18,10 +18,17 @@
 	while($row = mysql_fetch_array($rs)) {
 
 		// Write the data of the person
-		echo "<dt>Title:</dt><dd>" . $row["title"] . "</dd>";
-		echo "<dt>Publisher:</dt><dd>" . $row["publisher"] . "</dd>";
-		echo "<dt>ID:</dt><dd>" . $row["id"] . "</dd>";
-
+		echo "<table>";
+		echo "<tr>";
+		echo "<td>Title:</td><td>" . $row["title"] . "</td>";
+		echo "</tr>";
+		echo "<tr>";
+		echo "<td>Publisher:</td><td>" . $row["publisher"] . "</td>";
+		echo "</tr>";
+		echo "<tr>";
+		echo "<td>ID:</td><td>" . $row["id"] . "</td>";
+		echo "</tr>";
+		echo "</table>";
 	}
 
 	// Close the database connection

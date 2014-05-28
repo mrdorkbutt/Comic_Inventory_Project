@@ -15,7 +15,14 @@ $dbh = comicinventorydb_connect();
 
 
 //SQL query
-$sth = $dbh->query ("SELECT * From series ORDER BY title");
+//$sth = $dbh->query ("SELECT * From series ORDER BY title");
+
+
+
+/* Execute a prepared statement by passing an array of values */
+$sth = $dbh->query('SELECT *
+    FROM series
+    ORDER BY title');
 
 
 // Execute the Query
@@ -30,18 +37,17 @@ while ($rs = $sth->fetch(PDO::FETCH_OBJ)){
 // this is the problem area - Corey
 
 	   // Create a link to series.php with the id-value in the URL
-	   $strLink = "<a href = 'series.php?id= " . "\n" .$rs->id. "'>" .#rs->title. "</a>";
+	
+	 $strLink = "<a href='series.php?id=".$rs->id."'>" .$rs->title. "</a>";
+
 
 	    // List link
-	   echo "<li>" . $strLink . "</li>";
+	   
+	
+ echo "<li>" .$strLink . "</li>";
 
-	  }
+}
 
-//echo "Title: ".$rs->title."<br>";
-//echo "Publisher: ".$rs->publisher."<br>";
-//}
-
-// end of problem area - Corey
 	
 // close the database connection
 $dbh = NULL;
@@ -51,6 +57,4 @@ $dbh = NULL;
 
 
 </body>
-
-
 </html>
