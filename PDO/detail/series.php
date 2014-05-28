@@ -9,7 +9,8 @@
 	<?php
 	// Connect to database server
 
-	include "../../database_config.php";
+	require_once "comicinventory_connect.php";
+	$dbh = comicinventorydb_connect();
 
 	// Get data from the database depending on the value of the id in the URL
 	$sth = $dbh->query('SELECT * FROM series WHERE id=" . $_GET["id"]');
