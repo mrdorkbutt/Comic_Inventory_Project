@@ -13,7 +13,7 @@
 	$dbh = comicinventorydb_connect();
 
 	// Get data from the database depending on the value of the id in the URL
-	$sth = $dbh->query('SELECT * FROM series WHERE id=" . $_GET["id"]');
+	$sth = $dbh->query("SELECT * FROM series WHERE id=" . $_GET["id"]);
 
 
 	// execute the query
