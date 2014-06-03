@@ -13,9 +13,13 @@
 	$dbh = comicinventorydb_connect();
 
 	// Get data from the database depending on the value of the id in the URL
-	$sth = $dbh->query('SELECT * FROM type WHERE id=" . $_GET["issuetype"] INNER JOIN series ON type.id = series.issue_type_id');
-
-
+		try {
+		$sth = $dbh->query("SELECT * FROM series WHERE id=" . $_GET['id']);
+	} catch (PDOException $e) {
+          echo 'Connection failed: ' . $e->getMessage() ."\n<hr>";
+          echo 'Defaulting to ID=1<br>';
+	  $sth = $dbh->query("SELECT * FROM series WHERE id=1");
+        }
 	// execute the query
 	$sth->execute();
 

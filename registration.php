@@ -12,7 +12,7 @@
     <meta name="author" content="">
     
     
-    <title>Jumbotron Template for Bootstrap</title>
+    <title>Registration Page</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -60,69 +60,64 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1>Comic Inventory</h1>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-        <p><a class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p>
+        <h1>Account Registration</h1>
+        <p>&nbsp;</p>
     
       
 
 
 
-	<?php
- -	// Connect to database server
- include "database_config.php";
-  
-  	// SQL query
-  	$strSQL = "SELECT * From series ORDER BY title";
-  
-  	// Execute the query (the recordset $rs contains the result)
-  	$rs = mysql_query($strSQL);
-  	
-  	// Loop the recordset $rs
-  	while($row = mysql_fetch_array($rs)) {
-  
-  	   // Name of the person
-  	  $strName = $row['title'];
-  
-  	   // Create a link to series.php with the id-value in the URL
-	   $strLink = "<a href = 'series.php?id=" . $row['id'] . "'>" . $strName . "</a>";
-  
-  	    // List link
-  	   echo "<li>" . $strLink . "</li>";
-  
-  	  }
-  
-  	// Close the database connection
-  	mysql_close();
-  	?>
 
+<?php
+if ( empty( $_post) ) {
+	?>
 
+<form name="registration" action="registration" method="post">
+<label for 'username'>Username: </label>
+<input type="text" name="username"/><br>
 
+<label for 'password'>Password: </label>
+<input type="password" name="password"/><br>
+
+<label for 'first_name'>First Name: </label>
+<input type="text" name="first_name"/><br>
+
+<label for 'surname'>Last Name: </label>
+<input type="text" name="surname"/><br>
+
+<label for 'email'>Email: </label>
+<input type="text" name="email"/><br><br>
     
-    
+   <p><button type="button" class="btn btn-primary btn-lg" role="button">Register</button></p>
+    </form>
+    <?php
+} else {
+include "database_config.php";
+ 	
+$form - $_post;
+$username = $form[ 'username' ];
+$password = $form[ 'password' ];	
+$first_name = $form[ 'first_name' ];
+$surname = $form[ 'surname' ];
+$email = $form[ 'email' ];	
+
+$sql  = "INSERT INTO users ( username, password, first_name, surname, email ) VALUES ( :username, :password, :first_name; :surname; :email)";
+
+$query = $db->prepare( $sql );
+$result = $query->execute( array( ':username'=>$username, ':password'=>$password, ':first_name'=>$first_name, ':surname'=>$surname, ':email'=>$email ) );
+
+if ( $result ) {
+	echo "<p>Thank you. You have been registered</p>";
+} else {
+	echo "<p>Sorry, there has been a problem inserting your details. Please try again.</p>";
+
+
+}
+?>
     
       </div>
     </div>
 
-    <div class="container">
-      <!-- Example row of columns -->
-      <div class="row">
-        <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-       </div>
-        <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
-      </div>
 
       <hr>
 
@@ -136,7 +131,7 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
+     <script src="../../dist/js/bootstrap.min.js"></script>
   </body>
 </html>
 
