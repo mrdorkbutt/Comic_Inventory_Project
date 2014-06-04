@@ -101,18 +101,18 @@ $first_name = $form[ 'first_name' ];
 $surname = $form[ 'surname' ];
 $email = $form[ 'email' ];	
 
-$sql  = "INSERT INTO users ( username, password, first_name, surname, email ) VALUES ( :username, :password, :first_name; :surname; :email)";
+$sql  = "INSERT INTO user ( username, password, first_name, surname, email ) VALUES ( :username, :password, :first_name; :surname; :email)";
 
 $query = $db->prepare( $sql );
 $result = $query->execute( array( ':username'=>$username, ':password'=>$password, ':first_name'=>$first_name, ':surname'=>$surname, ':email'=>$email ) );
-
-if ( $result ) {
-	echo "<p>Thank you. You have been registered</p>";
-} else {
-	echo "<p>Sorry, there has been a problem inserting your details. Please try again.</p>";
-
-
 }
+//if ( $result ) {
+	//echo "<p>Thank you. You have been registered</p>";
+//} else {
+	//echo "<p>Sorry, there has been a problem inserting your details. Please try again.</p>";
+
+
+//}
 ?>
     
       </div>
