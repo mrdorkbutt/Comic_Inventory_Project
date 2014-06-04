@@ -106,13 +106,13 @@ $sql  = "INSERT INTO user ( username, password, first_name, surname, email ) VAL
 $query = $db->prepare( $sql );
 $result = $query->execute( array( ':username'=>$username, ':password'=>$password, ':first_name'=>$first_name, ':surname'=>$surname, ':email'=>$email ) );
 }
-//if ( $result ) {
-	//echo "<p>Thank you. You have been registered</p>";
-//} else {
-	//echo "<p>Sorry, there has been a problem inserting your details. Please try again.</p>";
+if ( $result ) {
+	echo "<p>Thank you. You have been registered</p>";
+} else {
+	echo "<p>Sorry, there has been a problem inserting your details. Please try again.</p>";
 
 
-//}
+}
 ?>
     
       </div>
