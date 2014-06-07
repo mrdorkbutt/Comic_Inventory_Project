@@ -40,77 +40,52 @@
           <a class="navbar-brand" href="#">Comic Inventory</a>
         </div>
         <div class="navbar-collapse collapse">
-  
-  
- 
-<?php include 'login.php';?>
-
-          
-          
-             </div><!--/.navbar-collapse -->
+         <?php include 'login.php';?>
+        </div><!--/.navbar-collapse -->
       </div>
     </div>
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1>Account Registration</h1>
+        <h1>Account Details</h1>
         <p>&nbsp;</p>
-
-
-
-<?php
-if ( empty( $_POST) ) {
-	?>
-
-<form name="registration" method="post">
-<label for 'username'>Username: </label>
-<input type="text" name="username"/><br>
-
-<label for 'password'>Password: </label>
-<input type="password" name="password"/><br>
-
-<label for 'first_name'>First Name: </label>
-<input type="text" name="first_name"/><br>
-
-<label for 'surname'>Last Name: </label>
-<input type="text" name="surname"/><br>
-
-<label for 'email'>Email: </label>
-<input type="text" name="email"/><br><br>
-    
-   <p><button type="submit" class="btn btn-primary btn-lg" role="button">Register</button></p>
-    </form>
-    <?php
-} else {
-	require_once "comicinventory_connect.php";
+<?php 
+require_once "comicinventory_connect.php";
  	$db = comicinventorydb_connect();
 	
-	$form = $_POST;
-	$username = $form[ 'username' ];
-	$password = $form[ 'password' ];	
-	$first_name = $form[ 'first_name' ];
-	$surname = $form[ 'surname' ];
-	$email = $form[ 'email' ];	
+    $sql = "SELECT * FROM user";
+    $query = $db->prepare( $sql );
+    $query->execute();
+ $results = $query->fetchAll( PDO::FETCH_ASSOC );
 
-	$sql  = "INSERT INTO user ( username, password, first_name, surname, email ) VALUES ( :username, :password, :first_name, :surname, :email)";
-	//echo "<pre>$sql</pre></br>";
-
-	$query = $db->prepare( $sql );
-	$result = $query->execute( array( ':username'=>$username, ':password'=>$password, ':first_name'=>$first_name, ':surname'=>$surname, ':email'=>$email )	 );
-
-	
-	if ( $result ) {
-		echo "<p>Thank you. You have been registered</p>";
-	} else {
-		echo "<p>Sorry, there has been a problem inserting your details. Please try again.</p>";
-	}
-}
-	
-	// Issue #6 : This should be inside the processing of the post.
-	
-?>
     
+	
+  ?>
+ <table class="table">
+   <tr>
+     <th>ID</th>
+     <th>Username</th>
+     <th>First Name</th>
+     <th>Surname</th>
+     <th>Email</th>
+   </tr>
+   <?php foreach( $results as $row ){
+   echo "<tr><td>";
+     echo $row['id'];
+     echo "</td><td>";
+     echo $row['username'];
+     echo "</td><td>";
+     echo $row['first_name'];
+     echo "</td><td>";
+     echo $row['surname'];
+     echo "</td><td>";
+     echo $row['email'];
+     echo "</td>";
+   echo "</tr>";
+   }
+ ?>
+ </table>
       </div>
     </div>
 
