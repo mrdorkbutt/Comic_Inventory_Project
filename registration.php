@@ -83,27 +83,32 @@ if ( empty( $_POST) ) {
     </form>
     <?php
 } else {
-	include "database_config.php";
- 	
-	$form - $_post;
+	require_once "comicinventory_connect.php";
+ 	$db = comicinventorydb_connect();
+	
+	$form = $_POST;
 	$username = $form[ 'username' ];
 	$password = $form[ 'password' ];	
 	$first_name = $form[ 'first_name' ];
 	$surname = $form[ 'surname' ];
 	$email = $form[ 'email' ];	
 
-	$sql  = "INSERT INTO user ( username, password, first_name, surname, email ) VALUES ( :username, :password, :first_name; :surname; :email)";
+	$sql  = "INSERT INTO user ( username, password, first_name, surname, email ) VALUES ( :username, :password, :first_name, :surname, :email)";
 	echo "<pre>$sql</pre></br>";
 
 	$query = $db->prepare( $sql );
-	$result = $query->execute( array( ':username'=>$username, ':password'=>$password, ':first_name'=>$first_name, ':surname'=>$surname, ':email'=>$email ) );
-	// Issue #6 : This should be inside the processing of the post.
+	$result = $query->execute( array( ':username'=>$username, ':password'=>$password, ':first_name'=>$first_name, ':surname'=>$surname, ':email'=>$email )	 );
+
+	
 	if ( $result ) {
 		echo "<p>Thank you. You have been registered</p>";
 	} else {
 		echo "<p>Sorry, there has been a problem inserting your details. Please try again.</p>";
 	}
 }
+	
+	// Issue #6 : This should be inside the processing of the post.
+	
 ?>
     
       </div>
