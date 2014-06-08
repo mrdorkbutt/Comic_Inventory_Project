@@ -84,6 +84,7 @@ if ( empty( $_POST) ) {
     <?php
 } else {
 	require_once "comicinventory_connect.php";
+	include ( 'PasswordHash.php' );
  	$db = comicinventorydb_connect();
 	
 	$form = $_POST;
@@ -92,6 +93,10 @@ if ( empty( $_POST) ) {
 	$first_name = $form[ 'first_name' ];
 	$surname = $form[ 'surname' ];
 	$email = $form[ 'email' ];	
+
+	$password = $_POST[ 'password' ];
+	$hash_obj = new PasswordHash( 8, false );
+	$hash = $hash_obj->HashPassword( $password );
 
 	$sql  = "INSERT INTO user ( username, password, first_name, surname, email ) VALUES ( :username, :password, :first_name, :surname, :email)";
 	//echo "<pre>$sql</pre></br>";
