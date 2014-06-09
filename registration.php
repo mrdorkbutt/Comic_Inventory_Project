@@ -102,7 +102,7 @@ if ( empty( $_POST) ) {
 	//echo "<pre>$sql</pre></br>";
 
 	$query = $db->prepare( $sql );
-	$result = $query->execute( array( ':username'=>$username, ':password'=>$password, ':first_name'=>$first_name, ':surname'=>$surname, ':email'=>$email )	 );
+	$result = $query->execute( array( ':username'=>$username, ':password'=>$hash, ':first_name'=>$first_name, ':surname'=>$surname, ':email'=>$email )	 );
 
 	
 	if ( $result ) {
