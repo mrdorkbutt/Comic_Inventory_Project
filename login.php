@@ -1,27 +1,18 @@
-<?php
-$_SESSION['user'] = $_POST['user'];
 
-if (isset($_SESSION['logged-in'])) {
- print_r( "Welcome User");
- 
+<form class="navbar-form navbar-right" role="form" name="login" action="login.php" method="POST">
+<div class="form-group">
+ <input type="text" name="username" class="form-control">
+          </div>
+          <div class="form-group">
+          <input type="password" name="password" placeholder="Password" class="form-control">
+          </div>
+          <button type="submit" class="btn btn-success">Sign in</button>
+         </form>
 
-} else {
- echo "<form class='navbar-form navbar-right' role='form' name='login' method='POST'>";
-       echo "<div class='form-group'>";
-         echo " <input type='text' name='username' class='form-control'>";
-          echo '</div>';
-          echo '<div class="form-group">';
-           echo "<input type='password' name='password' placeholder='Password' class='form-control'>";
-          echo "</div>";
-          echo "<button type='submit' class='btn btn-success'>Sign in</button>";
-         echo "</form>";
-}
 
-?>
 
   
   <?php
-
 
  
 if ($_POST ){
