@@ -1,0 +1,50 @@
+
+CREATE TABLE collection
+(
+	id INT NOT NULL AUTO_INCREMENT
+	,name VARCHAR(250) NOT NULL 
+	,PRIMARY KEY (id)
+);
+
+
+CREATE TABLE publication
+(
+	id INT NOT NULL AUTO_INCREMENT
+	,PRIMARY KEY (id)
+	,collection_Id INT NOT NULL 
+	,type_id INT NOT NULL 
+	,user_id INT  NULL 
+	,publisher VARCHAR(250)  NULL 
+	,release_date DATETIME  NULL 
+	,price DECIMAL(0, 0)  NULL 
+	,notes VARCHAR(5000)  NULL 
+	,writer_id INT  NULL
+	,artist_id INT  NULL 
+	,cover_id INT  NULL 
+	,quantity_id INT  NULL 
+);
+
+
+CREATE TABLE printing (
+	id INT NOT NULL AUTO_INCREMENT
+	,name varchar(250) null
+,PRIMARY KEY (id) 
+);
+
+
+
+CREATE TABLE creator
+(
+	id INT NOT NULL AUTO_INCREMENT
+	,name VARCHAR(250)  NULL 
+	,notes VARCHAR(5000)  NULL 
+,PRIMARY KEY (id)
+);
+
+
+CREATE TABLE type
+(
+	id INT NOT NULL AUTO_INCREMENT
+	,PRIMARY KEY (id)
+	,name VARCHAR(250)  NULL 
+);

@@ -1,0 +1,10 @@
+create table user (
+id INT NOT NULL AUTO_INCREMENT,
+username varchar(250) NOT NULL,
+password varchar(250) NOT NULL,
+first_name varchar(64) NOT NULL,
+surname varchar(64) NOT NULL,
+email varchar(64) NOT NULL,
+PRIMARY KEY ( id )
+
+);

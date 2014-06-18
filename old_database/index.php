@@ -17,7 +17,7 @@ session_start();
     <title>Jumbotron Template for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="../css/jumbotron.css" rel="stylesheet">
@@ -67,9 +67,8 @@ session_start();
  include "database_config.php";
   
   	// SQL query
-  	//$strSQL = "SELECT * From collection ORDER BY name";
-	$strSQL = "SELECT * FROM collection INNER JOIN publication ON collection.id = publication.collection_id Order by name";
-	  
+  	$strSQL = "SELECT * From series ORDER BY title";
+  
   	// Execute the query (the recordset $rs contains the result)
   	$rs = mysql_query($strSQL);
   	
@@ -77,10 +76,10 @@ session_start();
   	while($row = mysql_fetch_array($rs)) {
   
   	   // Name of the person
-  	  $strName = $row['name'];
+  	  $strName = $row['title'];
   
   	   // Create a link to series.php with the id-value in the URL
-	   $strLink = "<a href = 'publication.php?id=" . $row['id'] . "'>" . $strName . "</a>";
+	   $strLink = "<a href = 'series.php?id=" . $row['id'] . "'>" . $strName . "</a>";
   
   	    // List link
   	   echo "<li>" . $strLink . "</li>";
@@ -131,7 +130,7 @@ session_start();
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="file:///C|/Users/Corey/wamp/dist/js/bootstrap.min.js"></script>
   </body>
 </html>
 

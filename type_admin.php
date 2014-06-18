@@ -8,13 +8,13 @@
     <meta name="author" content="">
     
     
-    <title>Registration Page</title>
+    <title>Add to Database</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../css/jumbotron.css" rel="stylesheet">
+    <link href="css/jumbotron.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -54,59 +54,39 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1>Account Registration</h1>
+        <h1>Site admin</h1>
         <p>&nbsp;</p>
 
-
+<p>Add New Type</p>
 
 <?php
 if ( empty( $_POST) ) {
 	?>
 
-<form name="registration" method="post">
-<label for 'username'>Username: </label>
-<input type="text" name="username"/><br>
-
-<label for 'password'>Password: </label>
-<input type="password" name="password"/><br>
-
-<label for 'first_name'>First Name: </label>
-<input type="text" name="first_name"/><br>
-
-<label for 'surname'>Last Name: </label>
-<input type="text" name="surname"/><br>
-
-<label for 'email'>Email: </label>
-<input type="text" name="email"/><br><br>
+<form name="collect" method="post">
+<label for 'name'>Name: </label>
+<input type="text" name="name"/><br>
     
-   <p><button type="submit" class="btn btn-primary btn-lg" role="button">Register</button></p>
+   <p><button type="submit" class="btn btn-primary btn-lg" role="button">Submit</button></p>
     </form>
     <?php
 } else {
 	require_once "comicinventory_connect.php";
-	include ( 'PasswordHash.php' );
  	$db = comicinventorydb_connect();
 	
 	$form = $_POST;
-	$username = $form[ 'username' ];
-	$password = $form[ 'password' ];	
-	$first_name = $form[ 'first_name' ];
-	$surname = $form[ 'surname' ];
-	$email = $form[ 'email' ];	
-
-	$password = $_POST[ 'password' ];
-	$hash_obj = new PasswordHash( 8, false );
-	$hash = $hash_obj->HashPassword( $password );
-
-	$sql  = "INSERT INTO user ( username, password, first_name, surname, email ) VALUES ( :username, :password, :first_name, :surname, :email)";
+	$name = $form[ 'name' ];
+	
+	
+	$sql  = "INSERT INTO type ( name ) VALUES ( :name )";
 	//echo "<pre>$sql</pre></br>";
 
 	$query = $db->prepare( $sql );
-	$result = $query->execute( array( ':username'=>$username, ':password'=>$hash, ':first_name'=>$first_name, ':surname'=>$surname, ':email'=>$email )	 );
+	$result = $query->execute( array( ':name'=>$name )	 );
 
 	
 	if ( $result ) {
-		echo "<p>Thank you. You have been registered</p>";
+		echo "<p>Thank you. Your new type has been added.</p>";
 	} else {
 		echo "<p>Sorry, there has been a problem inserting your details. Please try again.</p>";
 	}
@@ -115,6 +95,8 @@ if ( empty( $_POST) ) {
 	// Issue #6 : This should be inside the processing of the post.
 	
 ?>
+    
+    
     
       </div>
     </div>
@@ -132,7 +114,7 @@ if ( empty( $_POST) ) {
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-     <script src="file:///C|/Users/Corey/wamp/dist/js/bootstrap.min.js"></script>
+     <script src="js/bootstrap.min.js"></script>
   </body>
 </html>
 
