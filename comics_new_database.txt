@@ -10,7 +10,7 @@ CREATE TABLE collection
 CREATE TABLE collection_publication (
 	collection_id INT NOT NULL,
 	publication_id INT NOT NULL
-	)
+	);
 	
 
 CREATE TABLE publication
