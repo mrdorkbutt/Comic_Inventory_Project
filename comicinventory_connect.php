@@ -15,7 +15,7 @@ function comicinventorydb_connect ()
 
 
 
-	$dbh = new PDO("mysql:host=localhost;dbname=cjenkins_1_comicinventory.db", "root", $password);
+	$dbh = new PDO("mysql:host=localhost;dbname=comics", "root", $password);
 	return ($dbh);
 }
 ?>

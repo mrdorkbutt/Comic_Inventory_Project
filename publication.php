@@ -13,7 +13,7 @@
 	$dbh = comicinventorydb_connect();
 
 	// Get data from the database depending on the value of the id in the URL
-	$sth = $dbh->query('SELECT * FROM collection INNER JOIN publication ON collection.id = publication.collection_id WHERE id=" . $_GET["collection_id"] Order by title ');
+	$sth = $dbh->query('select * from collection, collection_publication, publication Where collection.id=colletion_publication.collection_id and collection_publication.publication_id=publication_id and id=" . $_GET["collection_id"] Order by title ');
 //$sth = $dbh->query('SELECT * FROM collection WHERE id=" . $_GET["id"] Order by title ');
 
 

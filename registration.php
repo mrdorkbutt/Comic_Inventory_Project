@@ -11,10 +11,10 @@
     <title>Registration Page</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../css/jumbotron.css" rel="stylesheet">
+    <link href="css/jumbotron.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -132,7 +132,7 @@ if ( empty( $_POST) ) {
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-     <script src="file:///C|/Users/Corey/wamp/dist/js/bootstrap.min.js"></script>
+     <script src="js/bootstrap.min.js"></script>
   </body>
 </html>
 
