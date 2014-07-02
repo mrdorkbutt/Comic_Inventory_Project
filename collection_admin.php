@@ -1,3 +1,6 @@
+<?php
+	require_once "connect.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -90,7 +93,6 @@ if ( empty( $_POST) ) {
 	print "</ul>";
 
 } else {
-	require_once "connect.php";
  	$db = connect();
 	
 	$form = $_POST;
