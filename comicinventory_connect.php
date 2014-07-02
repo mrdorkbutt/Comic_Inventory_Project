@@ -3,27 +3,22 @@
 
 function comicinventorydb_connect ()
 {
-  include(".database.config");
 
-  $corey = True; // Set this to True for Corey and False for Mark
-
-  $password = "";
-
-  if (!$corey) 
-    {
-      $password="mysql"; 
-    }
+	$dsn = new enru\DsnFromEnv();
+	$dsn_string = $dsn->parse();
 
 
-   $db =null;
-   try {
-    $dbh = new PDO($db_url, $username, $password );
-    echo "PDO connection object created";
-    }
-   catch(PDOException $e)
-    {
-    echo $e->getMessage();
-    }
+
+	try {
+	    $dsn = new enru\DsnFromEnv();
+	    $dbh = new PDO($dsn->parse());
+	}   
+	catch (PDOException $e) {
+	    print "Error!: " . $e->getMessage() . "<br/>";
+	    die();
+	} 
+
 	return ($dbh);
+
 }
 ?>
