@@ -11,13 +11,7 @@
 <?php
 // Connect to database server
 require_once "comicinventory_connect.php";
-$dbh = comicinventorydb_connect();
-
-
-//SQL query
-//$sth = $dbh->query ("SELECT * From series ORDER BY title");
-
-
+$dbh = db_connect();
 
 /* Execute a prepared statement by passing an array of values */
 try {
