@@ -22,11 +22,11 @@ $dbh = comicinventorydb_connect();
 /* Execute a prepared statement by passing an array of values */
 try {
 	$sth = $dbh->query('SELECT * FROM type ORDER BY issuetype');
-	$sth->execute();
 } catch(PDOException $e) { 
     echo $e->getMessage();
 }
 
+	$sth->execute();
 
 // Execute the Query
 
