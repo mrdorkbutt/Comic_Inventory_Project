@@ -1,26 +1,21 @@
 <?php
 
-function db_connect ()
-{
 
-
-	try {
-	    $dbh = new PDO( db_string() );
-	    print "got it: " . db_string();
-	    return ($dbh);
-	}   
-	catch (PDOException $e) {
-	    print "Error!: " . $e->getMessage() . "<br/>";
-	    die();
-	} 
-
-
+function connect() {
+        $dbh = null;
+        try {
+            $dbh = new PDO( db_string() );
+        }
+        catch (PDOException $e) {
+            print "Error!: " . $e->getMessage() . "<br/>";
+            die();
+        }
+        return $dbh;
 }
-
 
 function db_string() {
          $db = parse_url(getenv('DATABASE_URL'));
-            
+
             // get the DB name
             $path = ltrim($db['path'], '/');
             $db['dbname'] = $path;
@@ -41,7 +36,7 @@ function db_string() {
             if(isset($schemes[$scheme])) {
                 $scheme = $schemes[$scheme];
             }
-            
+
             // clear unneeded values
             unset($db['pass']);
             unset($db['path']);
@@ -51,3 +46,4 @@ function db_string() {
 
 }
 ?>
+
