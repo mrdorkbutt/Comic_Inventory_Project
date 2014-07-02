@@ -21,34 +21,18 @@ $dbh = comicinventorydb_connect();
 
 /* Execute a prepared statement by passing an array of values */
 try {
-	$sth = $dbh->query('SELECT * FROM type ORDER BY issuetype');
+	// $sth = $dbh->query('SELECT * FROM type ORDER BY issuetype');
+$sql = "SELECT * FROM type ORDER BY issuetype";
+
+    foreach ($dbh->query($sql) as $row)
+        {
+           print $row['id'] .' - '. $row['issuetype'] . '<br />';
+        }
+
 } catch(PDOException $e) { 
     echo $e->getMessage();
 }
 
-	$sth->execute();
-
-// Execute the Query
-
-// Loop the recordset $rs
-// Each row will be made into an array ($row) using mysql_fetch_array
-
-while ($rs = $sth->fetch(PDO::FETCH_OBJ)){
-	// Write the value of the column FirstName (which is now in the array $row)
-
-// this is the problem area - Corey
-
-	   // Create a link to series.php with the id-value in the URL
-
-	
-	 $strLink = "<a href='series.php?id=".$rs->id."'>" .$rs->issuetype. "</a>";
-
-	    // List link
-	   
-	
- echo "<li>" .$strLink . "</li>";
-
-}
 
 	
 // close the database connection
