@@ -16,7 +16,8 @@ try {
     $sql = "SELECT * FROM type";
     foreach ($dbh->query($sql) as $row)
         {
-           print $row['id'] .' - '. $row['name'] . '<br />';
+	$strLink = "<a href='series.php?id=".$rs['id']."'>" .$rs['name']. "</a>";
+	 echo "<li>" .$strLink . "</li>";
         }
 
 } catch(PDOException $e) { 
