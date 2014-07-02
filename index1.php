@@ -13,7 +13,7 @@
         try {
             $dbh = new PDO( db_string() );
             print "got it: " . db_string();
-            return ($dbh);
+            //return ($dbh);
         }   
         catch (PDOException $e) {
             print "Error!: " . $e->getMessage() . "<br/>";
@@ -22,7 +22,7 @@
 
 /* Execute a prepared statement by passing an array of values */
 try {
-    $sql = "SELECT * FROM type ORDER BY issuetype";
+    $sql = "SELECT * FROM type";
     foreach ($dbh->query($sql) as $row)
         {
            print $row['id'] .' - '. $row['issuetype'] . '<br />';
