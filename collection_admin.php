@@ -70,9 +70,28 @@ if ( empty( $_POST) ) {
    <p><button type="submit" class="btn btn-primary btn-lg" role="button">Submit</button></p>
     </form>
     <?php
+
+        $dbh = connect();
+	print "<ul>";
+
+	/* Execute a prepared statement by passing an array of values */
+	try {
+	    $sql = "SELECT * FROM collection";
+	    foreach ($dbh->query($sql) as $row)
+		{
+		$strLink = "<a href='collection.php?id=".$row['id']."'>" .$row['name']. "</a>";
+		 echo "<li>" .$strLink . "</li>";
+		}
+
+	} catch(PDOException $e) {
+	    echo $e->getMessage();
+	}
+
+	print "</ul>";
+
 } else {
-	require_once "comicinventory_connect.php";
- 	$db = comicinventorydb_connect();
+	require_once "connect.php";
+ 	$db = connect();
 	
 	$form = $_POST;
 	$name = $form[ 'name' ];
