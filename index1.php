@@ -12,8 +12,6 @@
 	$dbh = null;
         try {
             $dbh = new PDO( db_string() );
-            print "got it: " . db_string();
-            //return ($dbh);
         }   
         catch (PDOException $e) {
             print "Error!: " . $e->getMessage() . "<br/>";
@@ -25,7 +23,7 @@ try {
     $sql = "SELECT * FROM type";
     foreach ($dbh->query($sql) as $row)
         {
-           print $row['id'] .' - '. $row['issuetype'] . '<br />';
+           print $row['id'] .' - '. $row['name'] . '<br />';
         }
 
 } catch(PDOException $e) { 
