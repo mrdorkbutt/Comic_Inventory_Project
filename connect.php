@@ -7,13 +7,13 @@ function db_connect ()
 	try {
 	    $dbh = new PDO( db_string() );
 	    print "got it: " . db_string();
+	    return ($dbh);
 	}   
 	catch (PDOException $e) {
 	    print "Error!: " . $e->getMessage() . "<br/>";
 	    die();
 	} 
 
-	return ($dbh);
 
 }
 
