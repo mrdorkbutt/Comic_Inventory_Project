@@ -20,13 +20,15 @@ $dbh = comicinventorydb_connect();
 
 
 /* Execute a prepared statement by passing an array of values */
-$sth = $dbh->query('SELECT *
-    FROM type
-    ORDER BY issuetype');
+try {
+	$sth = $dbh->query('SELECT * FROM type ORDER BY issuetype');
+	$sth->execute();
+} catch(PDOException $e) { 
+    echo $e->getMessage();
+}
 
 
 // Execute the Query
-$sth->execute();
 
 // Loop the recordset $rs
 // Each row will be made into an array ($row) using mysql_fetch_array
