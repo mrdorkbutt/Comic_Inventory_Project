@@ -10,7 +10,7 @@
 
 <?php
 // Connect to database server
-require_once "comicinventory_connect.php";
+require_once "connect.php";
 $dbh = db_connect();
 
 /* Execute a prepared statement by passing an array of values */
