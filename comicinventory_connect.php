@@ -3,6 +3,7 @@
 
 function comicinventorydb_connect ()
 {
+  include(".database.config");
 
   $corey = True; // Set this to True for Corey and False for Mark
 
@@ -14,8 +15,15 @@ function comicinventorydb_connect ()
     }
 
 
-
-	$dbh = new PDO("mysql:host=localhost;dbname=cjenkins_1_comicinventory.db", "root", $password);
+   $db =null;
+   try {
+    $dbh = new PDO($db_url, $username, $password );
+    echo "PDO connection object created";
+    }
+   catch(PDOException $e)
+    {
+    echo $e->getMessage();
+    }
 	return ($dbh);
 }
 ?>

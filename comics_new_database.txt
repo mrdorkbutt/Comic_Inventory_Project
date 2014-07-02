@@ -1,7 +1,7 @@
 
 CREATE TABLE collection
 (
-	id INT NOT NULL AUTO_INCREMENT
+	id INT NOT NULL 
 	,name VARCHAR(250) NOT NULL 
 	,PRIMARY KEY (id)
 );
@@ -15,14 +15,14 @@ CREATE TABLE collection_publication (
 
 CREATE TABLE publication
 (
-	id INT NOT NULL AUTO_INCREMENT
+	id INT NOT NULL 
 	,PRIMARY KEY (id)
 	,collection_Id INT NOT NULL 
 	,type_id INT NOT NULL 
 	,user_id INT  NULL 
 	,publisher VARCHAR(250)  NULL 
-	,release_date DATETIME  NULL 
-	,price DECIMAL(0, 0)  NULL 
+	,release_date TIMESTAMP  NULL 
+	,price DECIMAL(1, 1)  NULL 
 	,notes VARCHAR(5000)  NULL 
 	,writer_id INT  NULL
 	,artist_id INT  NULL 
@@ -32,7 +32,7 @@ CREATE TABLE publication
 
 
 CREATE TABLE printing (
-	id INT NOT NULL AUTO_INCREMENT
+	id INT NOT NULL 
 	,name varchar(250) null
 ,PRIMARY KEY (id) 
 );
@@ -41,7 +41,7 @@ CREATE TABLE printing (
 
 CREATE TABLE creator
 (
-	id INT NOT NULL AUTO_INCREMENT
+	id INT NOT NULL 
 	,name VARCHAR(250)  NULL 
 	,notes VARCHAR(5000)  NULL 
 ,PRIMARY KEY (id)
@@ -50,7 +50,7 @@ CREATE TABLE creator
 
 CREATE TABLE type
 (
-	id INT NOT NULL AUTO_INCREMENT
+	id INT NOT NULL 
 	,PRIMARY KEY (id)
 	,name VARCHAR(250)  NULL 
 );
