@@ -9,14 +9,7 @@
   <ul>
 
 <?php
-	$dbh = null;
-        try {
-            $dbh = new PDO( db_string() );
-        }   
-        catch (PDOException $e) {
-            print "Error!: " . $e->getMessage() . "<br/>";
-            die();
-        } 
+	$dbh = connect();
 
 /* Execute a prepared statement by passing an array of values */
 try {
@@ -45,6 +38,18 @@ $dbh = NULL;
 
 <?php
 
+
+function connect() {
+        $dbh = null;
+        try {
+            $dbh = new PDO( db_string() );
+        }
+        catch (PDOException $e) {
+            print "Error!: " . $e->getMessage() . "<br/>";
+            die();
+        }
+	return $dbh;
+}
 
 
 
