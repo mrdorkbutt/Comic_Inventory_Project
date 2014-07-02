@@ -112,7 +112,7 @@ try {
 	} else {
 		echo "<p>Sorry, there has been a problem inserting your details. Please try again.</p>";
 	}
-}  atch(PDOException $e) {
+}  catch(PDOException $e) {
             echo $e->getMessage();
         }
 }
