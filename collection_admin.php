@@ -103,6 +103,7 @@ if ( empty( $_POST) ) {
 	//echo "<pre>$sql</pre></br>";
 
 	$query = $db->prepare( $sql );
+try {
 	$result = $query->execute( array( ':name'=>$name )	 );
 
 	
@@ -111,6 +112,9 @@ if ( empty( $_POST) ) {
 	} else {
 		echo "<p>Sorry, there has been a problem inserting your details. Please try again.</p>";
 	}
+}  atch(PDOException $e) {
+            echo $e->getMessage();
+        }
 }
 	
 	// Issue #6 : This should be inside the processing of the post.
