@@ -4,10 +4,6 @@
 function comicinventorydb_connect ()
 {
 
-	$dsn = new enru\DsnFromEnv();
-	$dsn_string = $dsn->parse();
-
-
 
 	try {
 	    $dbh = new PDO( db_string() );
