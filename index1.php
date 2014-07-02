@@ -21,9 +21,7 @@ $dbh = comicinventorydb_connect();
 
 /* Execute a prepared statement by passing an array of values */
 try {
-	// $sth = $dbh->query('SELECT * FROM type ORDER BY issuetype');
-$sql = "SELECT * FROM type ORDER BY issuetype";
-
+    $sql = "SELECT * FROM type ORDER BY issuetype";
     foreach ($dbh->query($sql) as $row)
         {
            print $row['id'] .' - '. $row['issuetype'] . '<br />';

@@ -1,12 +1,12 @@
 <?php
-# pdo_comicinventory_connect.php - function for connecting to the "inventory database
 
-function comicinventorydb_connect ()
+function db_connect ()
 {
 
 
 	try {
 	    $dbh = new PDO( db_string() );
+	    print "got it";
 	}   
 	catch (PDOException $e) {
 	    print "Error!: " . $e->getMessage() . "<br/>";
