@@ -80,7 +80,7 @@ session_start();
   	  $strName = $row['name'];
   
   	   // Create a link to series.php with the id-value in the URL
-	   $strLink = "<a href = 'publication.php?id=" . $row['id'] . "'>" . $strName . "</a>";
+	   $strLink = "<a href = 'publication.php?collection_id=" . $row['id'] . "'>" . $strName . "</a>";
   
   	    // List link
   	   echo "<li>" . $strLink . "</li>";
